@@ -1,0 +1,23 @@
+{% extends 'my_pages/base.html' %}
+{% load static %}
+
+{%  block body_block %}
+
+<div class="jumbotron">
+  {% if regestred  %}
+  <h1>Thank you for regestering!</h1>
+  {% else %}
+  <h1>Regester here!</h1>
+  <h3>Fill out the form please!</h3>
+  <form class=""  method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ user_form.as_p }}
+    {{ profile_form.as_p }}
+    <input type="submit" name="" value="Regester">
+
+  </form>
+  {% endif %}
+
+</div>
+
+{% endblock %}
